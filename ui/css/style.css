@@ -24,3 +24,13 @@
 #point11 { top: 65%; left: 35%; }  /* Центральный квадрат - нижний левый угол */
 #point12 { top: 65%; left: 65%; }  /* Центральный квадрат - нижний правый угол */
 
+
+#calibrationVideo {
+    position: fixed; /* Fixed position to cover the whole screen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    z-index: 20; /* Ensure it's above other elements */
+}
+
