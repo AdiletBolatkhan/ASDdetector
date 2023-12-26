@@ -22,7 +22,11 @@
         <div class="point" id="point11"></div>
         <div class="point" id="point12"></div>
     </div>
-
+    <video id="calibrationVideo" width="320" height="240" controls style="display:none;">
+        <source src="./ui/content/family.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
     <!-- Load Webgazer.js -->
     <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
     
@@ -40,8 +44,14 @@
                 currentPoint++;
                 startCalibration();
             }, 2000); // Show each point for 2 seconds
-        } 
+        } else {
+            // Calibration is complete, show and play the video
+            var video = document.getElementById('calibrationVideo');
+            video.style.display = 'block';
+            video.play();
+        }
     }
+
 
     function initiateWebGazer() {
         webgazer.setGazeListener(function(data, elapsedTime) {
@@ -55,7 +65,7 @@
     }
 
     window.onload = function() {
-        // Initialize WebGazer and its camera first
+        // Initialize WebGazer and its camera fsirst
         initiateWebGazer();
     }
 </script>
