@@ -1,0 +1,26 @@
+
+.point {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+    z-index: 10;  /* Ensure they appear above the video */
+}
+
+#point1 { top: 5%;  left: 5%; }    /* Верхний левый угол */
+#point2 { top: 5%;  left: 95%; }   /* Верхний правый угол */
+#point3 { top: 95%; left: 5%; }    /* Нижний левый угол */
+#point4 { top: 95%; left: 95%; }   /* Нижний правый угол */
+
+#point5 { top: 5%;  left: 50%; }   /* Верхний центр */
+#point6 { top: 95%; left: 50%; }   /* Нижний центр */
+#point7 { top: 50%; left: 5%; }    /* Центр слева */
+#point8 { top: 50%; left: 95%; }   /* Центр справа */
+
+#point9  { top: 35%; left: 35%; }  /* Центральный квадрат - верхний левый угол */
+#point10 { top: 35%; left: 65%; }  /* Центральный квадрат - верхний правый угол */
+#point11 { top: 65%; left: 35%; }  /* Центральный квадрат - нижний левый угол */
+#point12 { top: 65%; left: 65%; }  /* Центральный квадрат - нижний правый угол */
+

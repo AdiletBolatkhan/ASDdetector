@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calibration</title>
+    <link rel="stylesheet" href="./ui/css/style.css">
+</head>
+<body>
+    <div id="calibrationPoints">
+        <div class="point" id="point1"></div>
+        <div class="point" id="point2"></div>
+        <div class="point" id="point3"></div>
+        <div class="point" id="point4"></div>
+        <div class="point" id="point5"></div>
+        <div class="point" id="point6"></div>
+        <div class="point" id="point7"></div>
+        <div class="point" id="point8"></div>
+        <div class="point" id="point9"></div>
+        <div class="point" id="point10"></div>
+        <div class="point" id="point11"></div>
+        <div class="point" id="point12"></div>
+    </div>
+
+    <!-- Load Webgazer.js -->
+    <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+    
+    <!-- Calibration Script -->
+    <!-- Calibration Script -->
+<script>
+    let currentPoint = 0;
+    const calibrationPoints = document.querySelectorAll('.point');
+
+    function startCalibration() {
+        if (currentPoint < calibrationPoints.length) {
+            calibrationPoints[currentPoint].style.display = 'block';
+            setTimeout(() => {
+                calibrationPoints[currentPoint].style.display = 'none';
+                currentPoint++;
+                startCalibration();
+            }, 2000); // Show each point for 2 seconds
+        } 
+    }
+
+    function initiateWebGazer() {
+        webgazer.setGazeListener(function(data, elapsedTime) {
+            if (data == null) {
+                return;
+            }
+            var xprediction = data.x; // The predicted x coordinate
+            var yprediction = data.y; // The predicted y coordinate
+            console.log(`Gaze Coordinates: x=${xprediction}, y=${yprediction}`);
+        }).begin().then(startCalibration);  // After initialization, start the calibration
+    }
+
+    window.onload = function() {
+        // Initialize WebGazer and its camera first
+        initiateWebGazer();
+    }
+</script>
+
+</body>
+</html>
